@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WK9</string>
+    <string name="id">id</string>
+    <string name="body">body</string>
+    <string name="title">title</string>
+    <string name="name">commentName</string>
+    <string name="add_comment">add post</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

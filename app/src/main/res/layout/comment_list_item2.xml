@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_marginHorizontal="@dimen/default_margin_mini"
+android:layout_marginTop="@dimen/default_margin_mini"
+app:cardBackgroundColor="@color/white"
+app:cardCornerRadius="8dp"
+app:cardElevation="@dimen/default_margin">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:weightSum="5"
+     android:layout_margin="8dp"
+     android:layout_marginHorizontal="4dp">
+
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:src="@drawable/ic_baseline_person_24"/>
+
+     <TextView
+         android:id="@+id/commentName"
+         android:inputType="text"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="commentName"
+         android:layout_weight="4"/>
+ </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:layout_margin="8dp"
+        android:layout_marginHorizontal="4dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_email_24"/>
+
+        <TextView
+            android:id="@+id/commentEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="commentEmail"
+            android:inputType="textEmailAddress"
+            android:layout_weight="4"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:layout_margin="8dp"
+        android:layout_marginHorizontal="4dp">
+
+        <TextView
+            android:id="@+id/commentBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="commentName"
+            android:layout_weight="5"/>
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
