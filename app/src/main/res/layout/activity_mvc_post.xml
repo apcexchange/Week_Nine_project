@@ -4,42 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".firstImplementation.model.views.PostActivity">
+    tools:context=".secondImplementation.ui.post.MvcPostActivity">
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/tool_bar"-->
-<!--        android:background="?attr/colorPrimary"-->
-<!--        app:titleTextColor="@color/white"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:logo="@drawable/fb_logo_30x50"-->
-<!--        app:title="Facebook Blog"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:minHeight="?attr/actionBarSize" />-->
 
-<!--    <androidx.appcompat.widget.SearchView-->
-<!--        android:id="@+id/search_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:queryHint="search content"-->
-<!--        app:searchIcon="@drawable/ic_baseline_search_24" />-->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/mvc_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="search content"
+        app:searchIcon="@drawable/ic_baseline_search_24" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/mvcRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent"        tools:listitem="@layout/post_list_item" />
+        app:layout_constraintTop_toBottomOf="@id/mvc_search_view"
+        tools:listitem="@layout/post_list_item" />
 
 
     <androidx.fragment.app.FragmentContainerView
@@ -52,7 +42,7 @@ app:layout_constraintTop_toTopOf="parent"        tools:listitem="@layout/post_li
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabPost"
+        android:id="@+id/mvc_fabPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

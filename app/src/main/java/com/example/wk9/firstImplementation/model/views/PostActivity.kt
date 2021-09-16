@@ -1,15 +1,22 @@
 package com.example.wk9.firstImplementation.model.views
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wk9.R
 import com.example.wk9.firstImplementation.model.adapter.PostRecyclerViewAdapter
 import com.example.wk9.databinding.ActivityMainBinding
 import com.example.wk9.firstImplementation.model.OnClickPostItem
@@ -18,15 +25,17 @@ import com.example.wk9.firstImplementation.model.repository.Repository
 import com.example.wk9.firstImplementation.model.utils.Constants.Companion.TAG
 import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModel
 import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModelFactory
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PostActivity : AppCompatActivity(), AddPostDialog.UploadDialogListener, OnClickPostItem {
     private lateinit var binding: ActivityMainBinding
    private lateinit var recyclerView: RecyclerView
    private lateinit var recyclerViewAdapter: PostRecyclerViewAdapter
-
-   private lateinit var arrayListOfPost: ArrayList<Post>
+    private lateinit var arrayListOfPost: ArrayList<Post>
    private lateinit var copyOfArrayListOfPost: ArrayList<Post>
-
+//   private var typedText:String
+//    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private val repository = Repository()
     private val viewModelFactory = MainActivityViewModelFactory(repository)
     private val viewModel by lazy { ViewModelProvider(this,viewModelFactory).get(MainActivityViewModel::class.java) }
@@ -38,7 +47,10 @@ class PostActivity : AppCompatActivity(), AddPostDialog.UploadDialogListener, On
         val view=binding.root
         setContentView(view)
 
-        searchQuerry()
+
+        supportActionBar?.title="FaceBook Blog (MVVM)"
+        supportActionBar?.setLogo(Drawable.createFromPath("fb_logo_30x50"))
+
         arrayListOfPost = arrayListOf()
 
         copyOfArrayListOfPost = arrayListOf()
@@ -73,8 +85,41 @@ class PostActivity : AppCompatActivity(), AddPostDialog.UploadDialogListener, On
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.my_menu,menu)
+        val item = menu!!.findItem(R.id.search_bar)
+        if (item != null){
+            var searchView = item.actionView as SearchView
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
 
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (newText!!.isNotEmpty()) {
+                        arrayListOfPost.clear()
+                        var search = newText.lowercase(Locale.getDefault())
+                        for (word in copyOfArrayListOfPost) {
+                            if (word.body.lowercase(Locale.getDefault()).contains(search)) {
+                                arrayListOfPost.add(word)
 
+                            }
+                            recyclerViewAdapter.notifyDataSetChanged()
+                        }
+                    }else{
+                        arrayListOfPost.clear()
+                        arrayListOfPost.addAll(copyOfArrayListOfPost)
+                        recyclerViewAdapter.notifyDataSetChanged()
+                    }
+                    return true
+                }
+            })
+        }
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+//
     override fun sendPost(post: Post) {
         Log.d("KKK", "FROM ALERT DIALOG:$post ")
         arrayListOfPost.add(post)
@@ -102,28 +147,28 @@ class PostActivity : AppCompatActivity(), AddPostDialog.UploadDialogListener, On
         startActivity(intent)
     }
 
-    fun searchQuerry(){
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                arrayListOfPost.clear()
-                val typedText = newText?.lowercase()?.trim()
-                if (typedText != null && typedText.isNotEmpty()){
-                    copyOfArrayListOfPost.forEach {
-                        if (it.body.contains(typedText,true)){
-                            arrayListOfPost.add(it)
-                            recyclerViewAdapter.notifyDataSetChanged()
-                        }
-                    }
-                }else{
-                    arrayListOfPost.clear()
-                    arrayListOfPost.addAll(copyOfArrayListOfPost)
-                }
-                return true
-            }
-        })
-    }
+//    fun searchQuerry(){
+//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                arrayListOfPost.clear()
+//                val typedText = newText?.lowercase()?.trim().toString()
+//                if (typedText.isNotEmpty()){
+//                    copyOfArrayListOfPost.forEach {
+//                        if (it.body.contains(typedText,true)){
+//                            arrayListOfPost.add(it)
+//                            recyclerViewAdapter.notifyDataSetChanged()
+//                        }
+//                    }
+//                }else{
+//                    arrayListOfPost.clear()
+//                    arrayListOfPost.addAll(copyOfArrayListOfPost)
+//                }
+//                return true
+//            }
+//        })
+//    }
 }

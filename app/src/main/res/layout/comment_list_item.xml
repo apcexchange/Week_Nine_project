@@ -19,7 +19,7 @@
         android:id="@+id/image"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/ic_baseline_person_24"
+        android:src="@drawable/passport"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="8dp"/>

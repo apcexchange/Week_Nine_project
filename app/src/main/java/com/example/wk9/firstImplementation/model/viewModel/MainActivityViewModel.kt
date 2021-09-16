@@ -33,7 +33,7 @@ class MainActivityViewModel(private val repository: Repository): ViewModel() {
     val pushCommentResponse: LiveData<Response<Comment>> get() = _pushCommentResponse
 
     // this function function triggers the network call for Allposts
-    fun getPost(){
+    fun  getPost(){
         viewModelScope.launch {
             try {
                 val response = repository.getPost()

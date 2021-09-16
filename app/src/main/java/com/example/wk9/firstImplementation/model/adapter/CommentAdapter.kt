@@ -10,7 +10,7 @@ import com.example.wk9.firstImplementation.model.AllComments
 import com.example.wk9.firstImplementation.model.Comment
 
 class CommentAdapter(private var arrayListOfComment: ArrayList<Comment>) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
-//    private var commentItem = arrayListOf<Comment>()
+//    private var commentItem = arrayListOf<Comment>()x
 
     class CommentViewHolder(view: View):RecyclerView.ViewHolder(view) {
 
