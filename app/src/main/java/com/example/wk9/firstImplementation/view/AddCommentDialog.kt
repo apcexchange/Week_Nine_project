@@ -1,4 +1,4 @@
-package com.example.wk9.firstImplementation.model.views
+package com.example.wk9.firstImplementation.view
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.wk9.databinding.FragmentAddCommentDialogBinding
 import com.example.wk9.firstImplementation.model.Comment
+import com.example.wk9.secondImplementation.model.data.mvcComment.MvcCommentItems
 import java.lang.ClassCastException
 
 class AddCommentDialog(private val arrayListOfComment: ArrayList<Comment>, private val listener: UploadCommentInterface) : DialogFragment() {

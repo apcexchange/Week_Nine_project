@@ -1,15 +1,11 @@
-package com.example.wk9.firstImplementation.model.views
+package com.example.wk9.firstImplementation.view
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -23,8 +19,8 @@ import com.example.wk9.firstImplementation.model.OnClickPostItem
 import com.example.wk9.firstImplementation.model.Post
 import com.example.wk9.firstImplementation.model.repository.Repository
 import com.example.wk9.firstImplementation.model.utils.Constants.Companion.TAG
-import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModel
-import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModelFactory
+import com.example.wk9.firstImplementation.viewModel.MainActivityViewModel
+import com.example.wk9.firstImplementation.viewModel.MainActivityViewModelFactory
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -34,8 +30,6 @@ class PostActivity : AppCompatActivity(), AddPostDialog.UploadDialogListener, On
    private lateinit var recyclerViewAdapter: PostRecyclerViewAdapter
     private lateinit var arrayListOfPost: ArrayList<Post>
    private lateinit var copyOfArrayListOfPost: ArrayList<Post>
-//   private var typedText:String
-//    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private val repository = Repository()
     private val viewModelFactory = MainActivityViewModelFactory(repository)
     private val viewModel by lazy { ViewModelProvider(this,viewModelFactory).get(MainActivityViewModel::class.java) }

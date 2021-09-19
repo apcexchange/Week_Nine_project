@@ -1,4 +1,4 @@
-package com.example.wk9.firstImplementation.model.views
+package com.example.wk9.firstImplementation.view
 
 import android.content.Context
 import android.os.Bundle

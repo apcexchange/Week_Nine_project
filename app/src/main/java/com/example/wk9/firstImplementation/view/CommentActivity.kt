@@ -1,4 +1,4 @@
-package com.example.wk9.firstImplementation.model.views
+package com.example.wk9.firstImplementation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,8 +12,8 @@ import com.example.wk9.firstImplementation.model.adapter.CommentAdapter
 import com.example.wk9.databinding.ActivityCommentBinding
 import com.example.wk9.firstImplementation.model.Comment
 import com.example.wk9.firstImplementation.model.repository.Repository
-import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModel
-import com.example.wk9.firstImplementation.model.viewModel.MainActivityViewModelFactory
+import com.example.wk9.firstImplementation.viewModel.MainActivityViewModel
+import com.example.wk9.firstImplementation.viewModel.MainActivityViewModelFactory
 
 class CommentActivity : AppCompatActivity(),AddCommentDialog.UploadCommentInterface {
 
@@ -69,15 +69,13 @@ class CommentActivity : AppCompatActivity(),AddCommentDialog.UploadCommentInterf
         commentRvAdapter.notifyDataSetChanged()
         binding.initialNumberOfComment.text = "${arrayListOfComment.size}"
         Log.d("under1", "sendComment:$arrayListOfComment ")
+        Toast.makeText(this,"comment successfully added to Api",Toast.LENGTH_LONG).show()
         viewModel.pushCommentToNetwork(comment)
         viewModel.pushCommentResponse.observe(this,{
             val response = it.body()
             Log.d("ADD", "sendComment: $response")
             if (it.isSuccessful){
-                Toast.makeText(this,"comment successfully added to Api",Toast.LENGTH_LONG).show()
-//                arrayListOfComment.add(comment)
                 Log.d("under", "sendComment: $arrayListOfComment")
-//                commentRvAdapter.notifyDataSetChanged()
             }
         })
     }

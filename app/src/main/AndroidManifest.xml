@@ -21,10 +21,10 @@
             android:name=".secondImplementation.ui.post.MvcPostActivity"
             android:exported="true" />
         <activity
-            android:name=".firstImplementation.model.views.PostActivity"
+            android:name="com.example.wk9.firstImplementation.view.PostActivity"
             android:exported="true" />
         <activity
-            android:name=".firstImplementation.model.views.CommentActivity"
+            android:name="com.example.wk9.firstImplementation.view.CommentActivity"
             android:exported="true" />
         <activity
             android:name=".WelcomeActivity"

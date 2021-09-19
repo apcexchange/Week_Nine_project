@@ -1,4 +1,4 @@
-package com.example.wk9.firstImplementation.model.viewModel
+package com.example.wk9.firstImplementation.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

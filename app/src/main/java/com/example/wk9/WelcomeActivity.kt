@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.wk9.databinding.ActivityWelcomeBinding
-import com.example.wk9.firstImplementation.model.views.PostActivity
+import com.example.wk9.firstImplementation.view.PostActivity
 import com.example.wk9.secondImplementation.ui.post.MvcPostActivity
 
 private lateinit var binding: ActivityWelcomeBinding

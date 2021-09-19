@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".firstImplementation.view.AddPostDialog">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondImplementation.ui.post.MvcAddCommentDialog">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,12 +16,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/postTitleLayout"
+            android:id="@+id/commentNameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
-            android:hint="post_title"
+            android:hint="comment_Nmae"
             app:errorEnabled="true"
             app:helperText="Required"
             app:helperTextEnabled="true"
@@ -30,12 +30,41 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/newPostTitle"
+                android:id="@+id/newCommentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:fontFamily="@font/aclonica"
+                android:padding="@dimen/default_margin_small" />
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/commentEmailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:hint="comment_Email"
+            app:errorEnabled="true"
+            app:helperText="Required"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/commentNameLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/newCommentEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:fontFamily="@font/aclonica"
                 android:padding="@dimen/default_margin_small" />
+
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,16 +79,16 @@
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/postTitleLayout">
+            app:layout_constraintTop_toBottomOf="@id/commentEmailLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/newPostBody"
+                android:id="@+id/newCommentBody"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:paddingHorizontal="@dimen/default_margin"
                 android:paddingVertical="@dimen/default_margin"
                 android:inputType="textMultiLine"
-                android:hint="post_body"
+                android:hint="Comment_body"
                 android:gravity="start|top"
                 android:fontFamily="@font/arsenal"
                 android:padding="@dimen/default_margin_small" />
@@ -67,11 +96,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btPost"
+            android:id="@+id/btPostComment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/default_margin_large"
-            android:text="post"
+            android:text="Add Comment"
             android:textColor="@color/black"
             android:backgroundTint="@color/teal_200"
             app:layout_constraintBottom_toBottomOf="parent"

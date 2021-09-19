@@ -47,4 +47,10 @@ class MvcCommentAdapter(private var listOfComment: ArrayList<MvcCommentItems>): 
 
     }
 
+    fun addNewComment(newcomment: MvcCommentItems){
+        listOfComment.add(newcomment)
+        notifyDataSetChanged()
+    }
+
+
 }

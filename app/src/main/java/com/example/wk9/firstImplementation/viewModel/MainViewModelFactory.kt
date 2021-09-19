@@ -1,4 +1,4 @@
-package com.example.wk9.firstImplementation.model.viewModel
+package com.example.wk9.firstImplementation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

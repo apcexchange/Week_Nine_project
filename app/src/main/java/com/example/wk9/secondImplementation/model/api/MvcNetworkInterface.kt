@@ -1,5 +1,7 @@
 package com.example.wk9.secondImplementation.model.api
 
+import com.example.wk9.firstImplementation.model.AllComments
+import com.example.wk9.secondImplementation.model.data.mvcComment.MvcCommentItems
 import com.example.wk9.secondImplementation.model.data.mvcComment.MvcComments
 import com.example.wk9.secondImplementation.model.data.mvcPost.MvcPostItems
 import com.example.wk9.secondImplementation.model.data.mvcPost.MvcPosts
@@ -22,4 +24,8 @@ interface MvcNetworkInterface {
     //get comment request
     @GET("posts/{id}/comments")
     fun getComments(@Path("id") id: Int): Call<MvcComments>
+
+    //add comment
+    @POST("comments")
+    fun addComment(@Body commentItems: MvcCommentItems) : Call<MvcCommentItems>
 }

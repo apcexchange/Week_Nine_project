@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,13 +46,7 @@ class MvcPostActivity : AppCompatActivity(), MvcOnclickPostItems, MvcAddPostDial
         binding.mvcFabPost.setOnClickListener {
             mvcAddPost()
         }
-
-
-
-
     }
-
-
 
     // set up recycler view
         private fun setUpRecyclerView(){
@@ -121,6 +116,7 @@ class MvcPostActivity : AppCompatActivity(), MvcOnclickPostItems, MvcAddPostDial
         }
     }
 
+    // pass post body to next activity
     override fun mvcPassToCommentActivity(position: Int, id: Int, body: String) {
         val intent = Intent(this,MvcCommentActivity::class.java).apply {
             putExtra("id",id)
@@ -129,6 +125,7 @@ class MvcPostActivity : AppCompatActivity(), MvcOnclickPostItems, MvcAddPostDial
         startActivity(intent)
     }
 
+    // search post fun
     private fun mvcSearchPost(){
         binding.mvcSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
